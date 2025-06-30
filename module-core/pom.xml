@@ -9,9 +9,7 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>module-web</artifactId>
-    <name>module_web</name>
-    <packaging>war</packaging>
+    <artifactId>module-core</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -21,19 +19,17 @@
 
     <dependencies>
         <dependency>
-            <groupId>jakarta.platform</groupId>
-            <artifactId>jakarta.jakartaee-web-api</artifactId>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>3.1.0</version>
+            <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>lk.rajaguru.web</groupId>
-            <artifactId>module-core</artifactId>
-            <type>jar</type>
-            <scope>compile</scope>
+            <groupId>jakarta.ejb</groupId>
+            <artifactId>jakarta.ejb-api</artifactId>
+            <version>4.0.1</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
-
-    <build>
-        <finalName>${project.name}</finalName>
-    </build>
 
 </project>

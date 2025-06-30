@@ -23,21 +23,17 @@
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>lk.rajaguru.web</groupId>
+            <artifactId>module-core</artifactId>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 
     <build>
         <finalName>${project.name}</finalName>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ejb-plugin</artifactId>
-                <version>3.2.1</version>
-                <configuration>
-                    <generateClient>true</generateClient>
-                </configuration>
-            </plugin>
-        </plugins>
     </build>
 
 </project>

@@ -1,9 +1,15 @@
-package lk.rajaguru.web.app.model;
+package lk.rajaguru.web.app.core.model;
 
 import jakarta.persistence.*;
 
+import java.io.Serializable;
+
 @Entity
-public class User {
+@Table(name = "user")
+@NamedQueries({
+        @NamedQuery(name = "User.findUserByEmail", query = "SELECT u FROM User u WHERE u.email=:email")
+})
+public class User implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
@@ -16,6 +22,14 @@ public class User {
     private UserType userType = UserType.USER;
 
     public User() {
+    }
+
+    public User(String name, String contact, String email, String password, UserType userType) {
+        this.name = name;
+        this.contact = contact;
+        this.email = email;
+        this.password = password;
+        this.userType = userType;
     }
 
     public long getId() {

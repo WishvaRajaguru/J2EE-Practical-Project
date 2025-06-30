@@ -13,6 +13,7 @@
         <module>module-ejb</module>
         <module>module-web</module>
         <module>module-ear</module>
+        <module>module-core</module>
     </modules>
 
     <properties>
@@ -36,6 +37,12 @@
             </dependency>
             <dependency>
                 <groupId>lk.rajaguru.web</groupId>
+                <artifactId>module-core</artifactId>
+                <version>1.0</version>
+                <type>jar</type>
+            </dependency>
+            <dependency>
+                <groupId>lk.rajaguru.web</groupId>
                 <artifactId>module-web</artifactId>
                 <version>1.0</version>
                 <type>war</type>
@@ -44,7 +51,7 @@
                 <groupId>lk.rajaguru.web</groupId>
                 <artifactId>module-ejb</artifactId>
                 <version>1.0</version>
-                <type>ejb-client</type>
+                <type>ejb</type>
             </dependency>
         </dependencies>
     </dependencyManagement>

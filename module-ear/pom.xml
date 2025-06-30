@@ -22,13 +22,18 @@
     <dependencies>
         <dependency>
             <groupId>lk.rajaguru.web</groupId>
+            <artifactId>module-core</artifactId>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>lk.rajaguru.web</groupId>
             <artifactId>module-web</artifactId>
             <type>war</type>
         </dependency>
         <dependency>
             <groupId>lk.rajaguru.web</groupId>
             <artifactId>module-ejb</artifactId>
-            <type>ejb-client</type>
+            <type>ejb</type>
         </dependency>
     </dependencies>
 
@@ -42,17 +47,25 @@
                 <configuration>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <modules>
+                        <jarModule>
+                            <groupId>lk.rajaguru.web</groupId>
+                            <artifactId>module-core</artifactId>
+                            <bundleFileName>module-core.jar</bundleFileName>
+                            <type>jar</type>
+                        </jarModule>
                         <webModule>
                             <groupId>lk.rajaguru.web</groupId>
                             <artifactId>module-web</artifactId>
+                            <bundleFileName>module-web.war</bundleFileName>
+                            <contextRoot>/practical_web</contextRoot>
                             <type>war</type>
-                            <contextRoot>/</contextRoot>
                         </webModule>
-                        <ejbClientModule>
+                        <ejbModule>
                             <groupId>lk.rajaguru.web</groupId>
                             <artifactId>module-ejb</artifactId>
-                            <type>ejb-client</type>
-                        </ejbClientModule>
+                            <bundleFileName>module-ejb.jar</bundleFileName>
+                            <type>ejb</type>
+                        </ejbModule>
                     </modules>
                 </configuration>
             </plugin>

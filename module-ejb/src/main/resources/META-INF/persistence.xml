@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
     <persistence-unit name="APP-UNIT" transaction-type="JTA">
-        <jta-data-source></jta-data-source>
+        <jta-data-source>j2ee_practical_project_resource</jta-data-source>
+        <class>lk.rajaguru.web.app.core.model.UserType</class>
+        <class>lk.rajaguru.web.app.core.model.User</class>
         <properties>
-            <property name="javax.persistence.schema-generation.database.action" value="create"/>
+            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
         </properties>
     </persistence-unit>
 </persistence>
