@@ -1,11 +1,10 @@
-package lk.rajaguru.web.app.bean;
+package lk.rajaguru.web.app.auth;
 
 import jakarta.annotation.security.RolesAllowed;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lk.rajaguru.web.app.core.model.User;
-import lk.rajaguru.web.app.core.model.UserType;
 import lk.rajaguru.web.app.core.service.UserService;
 
 import java.util.List;
@@ -13,7 +12,7 @@ import java.util.List;
 @Stateless
 public class UserSessionBean implements UserService {
 
-    @PersistenceContext
+    @PersistenceContext (unitName = "APP-UNIT")
     private EntityManager em;
 
     @Override

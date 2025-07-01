@@ -9,8 +9,8 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>module-ejb</artifactId>
-    <name>module_ejb</name>
+    <artifactId>module-product</artifactId>
+    <name>module_product</name>
     <packaging>ejb</packaging>
 
     <properties>

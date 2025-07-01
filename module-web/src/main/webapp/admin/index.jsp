@@ -12,5 +12,7 @@
 </head>
 <body>
     <h1>Hello admin, ${pageContext.request.userPrincipal.name}</h1>
+    <hr/>
+    <a href="${pageContext.request.contextPath}/admin/product_manager.jsp">Product Manager</a>
 </body>
 </html>

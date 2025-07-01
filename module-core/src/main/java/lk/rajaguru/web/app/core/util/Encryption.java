@@ -1,0 +1,27 @@
+package lk.rajaguru.web.app.core.util;
+
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
+public class Encryption {
+
+    public static String encrypt(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+            digest.update(password.getBytes(), 0, password.length());
+            BigInteger hash = new BigInteger(1, digest.digest());
+            return hash.toString(16);
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public static String decrypt(String password) {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}

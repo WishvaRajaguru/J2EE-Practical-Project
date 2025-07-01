@@ -2,10 +2,13 @@
 <persistence xmlns="https://jakarta.ee/xml/ns/persistence" version="3.0">
     <persistence-unit name="APP-UNIT" transaction-type="JTA">
         <jta-data-source>j2ee_practical_project_resource</jta-data-source>
-        <class>lk.rajaguru.web.app.core.model.UserType</class>
         <class>lk.rajaguru.web.app.core.model.User</class>
+        <class>lk.rajaguru.web.app.core.model.Product</class>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+            <!--to disable application level 2nd level caching in eclipse link, glassfish/payara embedded-->
+<!--            <property name="jakarta.persistence.shared-cache.mode" value="NONE"/>-->
+<!--            <property name="eclipselink.cache.shared.default" value="false"/>-->
         </properties>
     </persistence-unit>
 </persistence>

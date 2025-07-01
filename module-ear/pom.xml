@@ -32,7 +32,12 @@
         </dependency>
         <dependency>
             <groupId>lk.rajaguru.web</groupId>
-            <artifactId>module-ejb</artifactId>
+            <artifactId>module-auth</artifactId>
+            <type>ejb</type>
+        </dependency>
+        <dependency>
+            <groupId>lk.rajaguru.web</groupId>
+            <artifactId>module-product</artifactId>
             <type>ejb</type>
         </dependency>
     </dependencies>
@@ -47,12 +52,6 @@
                 <configuration>
                     <defaultLibBundleDir>lib</defaultLibBundleDir>
                     <modules>
-                        <jarModule>
-                            <groupId>lk.rajaguru.web</groupId>
-                            <artifactId>module-core</artifactId>
-                            <bundleFileName>module-core.jar</bundleFileName>
-                            <type>jar</type>
-                        </jarModule>
                         <webModule>
                             <groupId>lk.rajaguru.web</groupId>
                             <artifactId>module-web</artifactId>
@@ -62,8 +61,14 @@
                         </webModule>
                         <ejbModule>
                             <groupId>lk.rajaguru.web</groupId>
-                            <artifactId>module-ejb</artifactId>
-                            <bundleFileName>module-ejb.jar</bundleFileName>
+                            <artifactId>module-auth</artifactId>
+                            <bundleFileName>module-auth.jar</bundleFileName>
+                            <type>ejb</type>
+                        </ejbModule>
+                        <ejbModule>
+                            <groupId>lk.rajaguru.web</groupId>
+                            <artifactId>module-product</artifactId>
+                            <bundleFileName>module-product.jar</bundleFileName>
                             <type>ejb</type>
                         </ejbModule>
                     </modules>

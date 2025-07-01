@@ -10,10 +10,11 @@
     <name>j2ee_practical_project</name>
     <packaging>pom</packaging>
     <modules>
-        <module>module-ejb</module>
+        <module>module-auth</module>
         <module>module-web</module>
         <module>module-ear</module>
         <module>module-core</module>
+        <module>module-product</module>
     </modules>
 
     <properties>
@@ -49,7 +50,13 @@
             </dependency>
             <dependency>
                 <groupId>lk.rajaguru.web</groupId>
-                <artifactId>module-ejb</artifactId>
+                <artifactId>module-auth</artifactId>
+                <version>1.0</version>
+                <type>ejb</type>
+            </dependency>
+            <dependency>
+                <groupId>lk.rajaguru.web</groupId>
+                <artifactId>module-product</artifactId>
                 <version>1.0</version>
                 <type>ejb</type>
             </dependency>
