@@ -16,12 +16,4 @@ public class Encryption {
             throw new RuntimeException(e);
         }
     }
-
-    public static String decrypt(String password) {
-        try {
-            MessageDigest digest = MessageDigest.getInstance("MD5");
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        }
-    }
 }

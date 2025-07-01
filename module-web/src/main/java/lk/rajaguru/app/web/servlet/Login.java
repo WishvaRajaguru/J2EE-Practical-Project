@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lk.rajaguru.web.app.core.model.User;
 import lk.rajaguru.web.app.core.service.UserService;
+import lk.rajaguru.web.app.core.util.Encryption;
 
 import java.io.IOException;
 
@@ -27,7 +28,7 @@ public class Login extends HttpServlet {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        AuthenticationStatus status = securityContext.authenticate(request, response, new AuthenticationParameters().credential(new UsernamePasswordCredential(email, password)));
+        AuthenticationStatus status = securityContext.authenticate(request, response, new AuthenticationParameters().credential(new UsernamePasswordCredential(email, Encryption.encrypt(password))));
 
         System.out.println(status);
 
