@@ -1,6 +1,11 @@
 package lk.rajaguru.app.web.servlet;
 
 import jakarta.ejb.EJB;
+import jakarta.inject.Inject;
+import jakarta.security.enterprise.AuthenticationStatus;
+import jakarta.security.enterprise.SecurityContext;
+import jakarta.security.enterprise.authentication.mechanism.http.AuthenticationParameters;
+import jakarta.security.enterprise.credential.UsernamePasswordCredential;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,17 +19,19 @@ import java.io.IOException;
 @WebServlet("/servlet/login")
 public class Login extends HttpServlet {
 
-    @EJB
-    private UserService userService;
+    @Inject
+    private SecurityContext securityContext;
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        User user = userService.getUserByEmail(email);
-        if (user != null && user.getPassword().equals(password)) {
-            request.getSession().setAttribute("user", user);
+        AuthenticationStatus status = securityContext.authenticate(request, response, new AuthenticationParameters().credential(new UsernamePasswordCredential(email, password)));
+
+        System.out.println(status);
+
+        if (status == AuthenticationStatus.SUCCESS) {
             response.sendRedirect(getServletContext().getContextPath()+"/index.jsp");
         }else{
             response.getWriter().write("Invalid email or password");

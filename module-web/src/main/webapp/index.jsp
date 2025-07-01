@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: rwish
@@ -12,13 +13,16 @@
 </head>
 <body>
     <h1>Home JSP</h1>
-    <% if (session.getAttribute("user") == null) {%>
+    <c:if test="${empty pageContext.request.userPrincipal}">
         <a href="${pageContext.servletContext.contextPath}/register.jsp">Register</a>
         <a href="${pageContext.servletContext.contextPath}/login.jsp">Login</a>
-    <%}else{%>
+    </c:if>
+    <c:if test="${not empty pageContext.request.userPrincipal}">
         <a href="${pageContext.servletContext.contextPath}">Home</a>
         <a href="${pageContext.servletContext.contextPath}">profile</a>
         <a href="${pageContext.servletContext.contextPath}/servlet/logout">Logout</a>
-    <%}%>
+    </c:if>
+
+    <h1>Hello, ${pageContext.request.userPrincipal.name}</h1>
 </body>
 </html>
